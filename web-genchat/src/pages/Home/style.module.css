@@ -1,0 +1,178 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    transition: all .5s ease-in-out;
+}
+
+.containerLightMode{
+    background-color: rgba(196, 196, 196, 1);
+}
+
+.containerDarkMode{
+    background-color: #26262C;
+    color: #ffffff;
+}
+
+.header {
+    display: flex;
+    flex-direction: column; 
+    padding: 10px;
+    align-items: center;
+}
+
+.header h1{
+    font-size: 50px;
+    margin: 5px 0;
+}
+
+.switch{
+    margin: 5px 0;
+}
+
+.themeIcon{
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content img {
+    max-width:450px;
+    max-height:450px;
+    width: 80%;
+    height: auto;
+    border-radius: 83px;
+}
+
+.formLogin {
+    width: 80%;
+    height: fit-content;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLoginLightMode {
+    background-color: #ffffff;
+}
+
+.formLoginDarkMode {
+    background-color: #303036;
+}
+
+.formLogin input[type=text] {
+    border: none;
+    border-bottom: 1px solid;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.inputLightMode {
+    background-color: white;
+    color: black;
+}
+
+.inputDarkMode {
+    background-color: #303036;   
+    color: white;
+}
+
+.formLogin input[type=text]:focus {
+    border-bottom: 3px solid;
+}
+
+.button {
+    padding: 10px;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.button span{
+    margin: auto;
+}
+
+.button:hover {
+    transition: all .2s ease-in-out;
+}
+
+.button:active {
+    background-color: rgba(196, 196, 196, 1);
+}
+
+.buttonLightMode {
+    background-color: black;
+    color: rgb(170, 170, 170);
+}
+
+.buttonLightMode:hover {
+    background-color: rgb(170, 170, 170);
+    color: black;
+}
+
+.buttonDarkMode {
+    background-color: white;
+    color: black;
+}
+
+.buttonDarkMode:hover {
+    background-color: black;
+    color: rgb(170, 170, 170);
+}
+
+@media screen and (min-width: 1620px){
+    .container {
+        height: 100vh;
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .content img {
+        max-width:700px;
+        max-height:700px;
+        width: auto;
+        height: auto;
+    }
+
+    .formLogin {
+        width: 400px;
+        height: fit-content;
+        padding: 20px;
+        display: flex;
+        margin-right: 100px;
+        flex-direction: column;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .header h1{
+        margin: auto;
+        font-size: 50px;
+    }
+
+    .switch{
+        align-self: center;   
+    }
+    
+    .themeIcon{
+        font-size: 40px;
+        margin-right: 10px;
+        align-self: center;
+    }
+}

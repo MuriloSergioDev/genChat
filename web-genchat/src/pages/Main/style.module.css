@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+}
+
+.containerLightMode {
+    background-color: rgb(196, 196, 196);
+    color: black;
+}
+
+.containerDarkMode {
+    background-color: #26262C;
+    color: white;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    padding: 20px;
+}
+
+.header h1{
+    margin: auto;
+}
+
+.switch{
+    align-self: center;   
+}
+
+.themeIcon{
+    font-size: 40px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.loader {
+    margin: auto;
+}
+
+.buttonLogout {
+    border: none;
+    background-color: rgba(196, 196, 196, 0);
+    cursor: pointer;
+    font-size: 2em;
+    display: flex;
+}
+
+.buttonLogoutLightMode {
+    color: black;
+}
+
+.buttonLogoutLightMode:active {
+    color: rgb(170, 170, 170);
+}
+
+.buttonLogoutDarkMode {
+    color: white;
+}
+
+.buttonLogoutDarkMode:active {
+    color: black;
+}
+
+.messagesFeed {
+    width: 80%;
+    height: 800px;
+    overflow: scroll;
+}
+
+.messagesFeedLightMode {
+    background-color: rgb(170, 170, 170);
+}
+
+.messagesFeedDarkMode {
+    background-color: #303036;
+}
+
+.message {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    color: black;
+}
+
+.messagesSender {
+    width: 80%;
+    margin-top: 40px;
+}
+
+.messagesSender input{
+    width: 100%;
+    height: 150px;
+    resize: none;
+    font-size: 3em;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+  
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: gray;
+}
+
+@media screen and (max-width: 560px){
+    .header {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .header h1{
+        margin: 10px 0;
+    }
+
+    .switch{
+        margin: 5px 0;
+    }
+    
+    .themeIcon{
+        font-size: 40px;
+        margin: 5px 0;
+    }
+
+    .buttonSend {
+        width: 100%;
+        align-self: center;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    .buttonLogout {
+        margin-top: 10px;
+        border-radius: 20px;
+        margin-right: auto;
+    }
+
+    .messagesSender input{
+        width: 100%;
+        height: 100px;
+        font-size: 1em;
+        padding: 10px;
+        text-align: center;
+    }
+}

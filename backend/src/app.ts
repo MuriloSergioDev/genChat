@@ -7,10 +7,9 @@ const app = express();
 const server = http.createServer(app)
 const io = socketIO(server);
 
-
-
 io.on('connection', (socket) => {
-    
+    console.log('nova conexao');
+
     socket.on('new user entering' , (user)=>{
         const msg = {
             data: `${user} logged in`,

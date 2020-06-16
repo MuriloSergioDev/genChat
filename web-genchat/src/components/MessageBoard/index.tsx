@@ -1,22 +1,28 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import socket from '../../services/socket';
-import MessageChat from '../../components/messageChat';
-// import { Container } from './styles';
+import MessageChat from '../MessageChat';
+import stylesMain from '../../pages/Main/style.module.css';
 
 interface MessageFeed {
     data: string,
     autor: string
 }
 
-const MessageBoard: React.FC = () => {
+type Props = {
+    darkMode: boolean
+}
 
-    const [messageFeed, setMessageFeed] = useState<object[] >([]);
+const MessageBoard: React.FC<Props> = ({ darkMode }) => {
+
+    const [messageFeed, setMessageFeed] = useState<object[]>([]);
     const [actualMessage, setActualMessage] = useState<MessageFeed>();
     const scroll = useRef<HTMLDivElement>(null);
+    
+    const messageFeedStyle = [stylesMain.messagesFeed];
 
-    useLayoutEffect(()=>{
+    useLayoutEffect(() => {
         autoScroll();
-    },[messageFeed])
+    }, [messageFeed])
 
     useEffect(() => {
         socket.on('user login', (msg: MessageFeed) => {
@@ -26,17 +32,20 @@ const MessageBoard: React.FC = () => {
         socket.on('post message', (msg: MessageFeed) => {
             setActualMessage(msg);
         });
+
+        return () => {
+            socket.removeAllListeners();            
+        };
     }, []);
 
     function autoScroll() {
         if (scroll != null && scroll.current != null) {
-            scroll.current.scrollIntoView({ behavior: "smooth" });    
+            scroll.current.scrollIntoView({ behavior: "smooth" });
         }
-        
     }
 
     function updateMessage() {
-        if (actualMessage)  {
+        if (actualMessage) {
             const msgCopy = Array.from(messageFeed);
             msgCopy.push(actualMessage);
             setMessageFeed(msgCopy);
@@ -47,10 +56,11 @@ const MessageBoard: React.FC = () => {
     if (actualMessage) {
         updateMessage();
     }
-    
+
+    darkMode ? messageFeedStyle.push(stylesMain.messagesFeedDarkMode) : messageFeedStyle.push(stylesMain.messagesFeedLightMode);
 
     return (
-        <div className="messages-feed"  >
+        <div className={messageFeedStyle.join(' ')}  >
             {
                 messageFeed
                     ?
