@@ -30,17 +30,23 @@ const Main: React.FC = () => {
         if (mount) {
             socket.connect();
         }
+        
+        if(localStorage.getItem('username') === null) localStorage.setItem('username', 'anonimo')
 
         socket.on('connect', () => {
             setConnection(true);
             socket.emit('new user entering', localStorage.getItem('username'));
         });
-
+        
         return () => {
             socket.removeAllListeners();
             mount = false;
         };
     }, [])
+
+    useEffect(() => {
+        localStorage.setItem('darkMode', JSON.stringify(darkMode))
+    }, [darkMode])
 
     function handleUserLogout() {
         socket.emit('user logout', localStorage.getItem('username'));
